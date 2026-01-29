@@ -1,4 +1,8 @@
 import java.util.Scanner;
+public class NombreMystere {
+    public static void main(String[] args) {
+
+import java.util.Scanner;
 
 public class NombreMystere {
     public static void main(String[] args) {
@@ -14,5 +18,6 @@ public class NombreMystere {
             } ;
 
         }
+
     }
 }
