@@ -1,49 +1,36 @@
+import java.util.Random;
 import java.util.Scanner;
+
 public class NombreMystere {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in) ;
-        System.out.println("Entres le nombre de notes a saisir: ");
-        int N = sc.nextInt();
-        int NOTES [] = new int[N];
-        for ( int i = 0 ; i < N ; i++){
-            NOTES[i] = sc.nextInt();
-            while (NOTES[i] < 0 || NOTES[i] > 20) {
-                System.out.println("stp entres un nmbre compris entre 0 et 20");
-                NOTES[i] = sc.nextInt();
-            } ;
-
-        }
-
-        for ( int i = 0 ; i < N ; i++){
-            System.out.println(NOTES[i]);
-        }
-
-        int moy;
-        int max = NOTES[0];
-        int min = NOTES[0]  ;
-        int sum = 0 ;
-        for ( int i = 0 ; i < N ; i++){
-            System.out.println(NOTES[i]);
-        }
-        // Calcule de la moyenne
-        for ( int i = 0 ; i < N ; i++){
-            sum += NOTES[i] ;
-        }
-        System.out.println("La moyenne est : " +sum/ N);
-        // Calcule de la note max
-        for (int i= 0 ; i < N ; i++){
-            if (NOTES[i] > max){
-                max = NOTES[i];}
-        }
-        System.out.println("La notes maximale est de :" +max);
-        // Calcule de la note Min
-        for ( int j = 0 ; j < N ; j++){
-            if (NOTES[j] < min){
-                min = NOTES[j];
+        Scanner sc = new Scanner(System.in);
+        // genere le nombre secret
+        int nombreSecret = new Random().nextInt(100) + 1;
+        System.out.println(nombreSecret);
+        System.out.print("Entre le nombre secret: ");
+        int randomNumber = sc.nextInt();
+        int attempt= 1;
+        while (randomNumber != nombreSecret) {
+            if (randomNumber < nombreSecret) {
+                System.out.println("Trop petit!");
             }
+            else
+            {
+                System.out.println("Trop grand!");
+            }
+            System.out.print("Entre encore le nombre secret: ");
+            randomNumber = sc.nextInt();
+            attempt++;
         }
-        System.out.println("La Note min est de: " +min);
+        System.out.println("le nombre de tentatoive est de "+attempt);
+        if (attempt <= 5){
+            System.out.println("C'est exellent!");
+        } else if (attempt <=10) {
+            System.out.println("C'est bien!");
 
+        }
+        else {
+            System.out.println("TU PEUX MIEUX FAIRE, TOI AUSSI");
+        }
     }
-
 }
